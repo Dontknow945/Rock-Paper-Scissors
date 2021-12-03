@@ -1,0 +1,2 @@
+# [The Odin Project - Rock Paper Scissors](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/rock-paper-scissors)
+Make a simple implementation of grade-school classic “rock paper scissors” using javascript.
