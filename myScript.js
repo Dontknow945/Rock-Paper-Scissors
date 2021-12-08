@@ -13,10 +13,12 @@ function computerPlay() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+function playRound(e) {
+    playerSelection = this.classList.item(0);
+    const computerSelection = computerPlay();
 
     if (playerSelection === computerSelection) {
+        console.log("A Tie.");
         return "A Tie.";
     }
     
@@ -24,25 +26,31 @@ function playRound(playerSelection, computerSelection) {
         case "rock":
             if (computerSelection === "paper") {
                 computerScore++;
+                console.log("You Lose! Paper beats Rock.");
                 return "You Lose! Paper beats Rock.";
             } else {
                 playerScore++;
+                console.log("You Win!");
                 return "You Win!";
             }
         case "paper":
             if (computerSelection === "scissors") {
                 computerScore++;
+                console.log("You Lose! Scissors beats Paper.");
                 return "You Lose! Scissors beats Paper.";
             } else {
                 playerScore++;
+                console.log("You Win!");
                 return "You Win!";
             }
         case "scissors":
             if (computerSelection === "rock") {
                 computerScore++;
+                console.log("You Lose! Rock beats Scissors.");
                 return "You Lose! Rock beats Scissors.";
             } else {
                 playerScore++;
+                console.log("You Win!");
                 return "You Win!";
             }
         default:
@@ -76,4 +84,12 @@ function game() {
 let playerScore = 0;
 let computerScore = 0;
 
-game();
+//game();
+
+const btn_rock = document.querySelector('.rock');
+const btn_paper = document.querySelector('.paper');
+const btn_sci = document.querySelector('.scissors');
+
+btn_rock.addEventListener('click', playRound);
+btn_paper.addEventListener('click', playRound);
+btn_sci.addEventListener('click', playRound);
